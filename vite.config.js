@@ -1,12 +1,14 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import css from "vite-plugin-css"; // Import the vite-plugin-css
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    css(), // Add the vite-plugin-css as a plugin
-  ],
+   build: {
+    rollupOptions: {
+      external: ['bootstrap/dist/css/bootstrap.css'],
+    },
+  },
+  plugins: [react()],
   optimizeDeps: {
     include: ["bootstrap"],
   },
